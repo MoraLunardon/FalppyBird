@@ -1,7 +1,4 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
+
 using UnityEngine;
 
 public class CanoFlappyBIrd : MonoBehaviour
@@ -18,6 +15,6 @@ public class CanoFlappyBIrd : MonoBehaviour
     {
         transform.Translate(velocidade * Time.deltaTime * Vector3.left);
 
-        if (transform.position.x < -20f) Destroy(gameObject);
+        if (transform.position.x < -30f) Destroy(gameObject);
     }
 }

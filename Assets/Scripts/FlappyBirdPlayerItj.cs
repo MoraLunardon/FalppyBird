@@ -33,6 +33,6 @@ public class FlappyBirdPlayerItj : MonoBehaviour
 
     public void GameOver()
     {
-        Debug.Log("Game Over");
+        Time.timeScale = 0;
     }
 }

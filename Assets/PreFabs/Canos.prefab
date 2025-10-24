@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1476132037043992227}
   - component: {fileID: 315812020459449405}
   - component: {fileID: 680215026236720597}
+  - component: {fileID: 7606500837124446726}
   m_Layer: 0
   m_Name: Sensor
   m_TagString: Untagged
@@ -91,6 +92,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84aeb4e8c04db79478cdc7c66063f09d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &7606500837124446726
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 236824585646492521}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff9af342cf384bc4dbcd2b250f2bb009, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3463610403722887266
 GameObject:
   m_ObjectHideFlags: 0
@@ -117,7 +130,7 @@ Transform:
   m_GameObject: {fileID: 3463610403722887266}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.67, y: -1.33, z: -0.05433842}
+  m_LocalPosition: {x: 13, y: -1.33, z: -0.05433842}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

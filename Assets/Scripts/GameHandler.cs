@@ -33,7 +33,7 @@ public class GameHandler : MonoBehaviour
         {
             var novoCano = Instantiate(canoPrefab);
             
-            novoCano.transform.position = new Vector3(10,0,0);
+            novoCano.transform.position = new Vector3(13,0,0);
             _tempoAtualSpawn = tempoSpawn;
         }
     }
