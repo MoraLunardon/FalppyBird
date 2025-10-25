@@ -7,7 +7,7 @@ public class MainMenu : MonoBehaviour
     [SerializeField] private GameObject PainelMenuPrincipal;
     [SerializeField] private SpriteRenderer Player;
     [SerializeField] private TextMeshProUGUI Contador;
-    [SerializeField] private TextMeshProUGUI PlayButton;
+    [SerializeField] private GameObject PlayButton;
     private float DefaultColor = 1f;
 
     public void Start()
