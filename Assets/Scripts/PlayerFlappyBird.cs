@@ -27,6 +27,6 @@ public class PlayerFlappyBird : MonoBehaviour
     }
     public void GameOver()
     {
-        Time.timeScale = 0;
+        Time.timeScale = 1;
     }
 }

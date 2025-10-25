@@ -1039,6 +1039,7 @@ MonoBehaviour:
   posicaoTeto: {fileID: 1959447100}
   posicaoChao: {fileID: 250429000}
   canoPrefab: {fileID: 3463610403722887266, guid: 7c76df117afcfcb4589c038cc8e8e487, type: 3}
+  canoSobeDecePrefab: {fileID: 3463610403722887266, guid: f4f395bd1f6ed5b49b386a79562c9dd6, type: 3}
   tempoSpawn: 3
 --- !u!4 &1487999065
 Transform:

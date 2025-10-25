@@ -8,13 +8,17 @@ public class GameHandler : MonoBehaviour
     [SerializeField] private GameObject posicaoTeto;
     [SerializeField] private GameObject posicaoChao;
     [SerializeField] private GameObject canoPrefab;
+    [SerializeField] private GameObject canoSobeDecePrefab;
 
-    [SerializeField] private float tempoSpawn = 3;
+    [SerializeField] private float tempoSpawn = 4;
+    private float tempoSpawnSD = 2;
     private float _tempoAtualSpawn;
+    private float _tempoSD;
 
     private void Start()
     {
         _tempoAtualSpawn = tempoSpawn;
+        _tempoSD = tempoSpawnSD;
     }
 
     // Update is called once per frame
@@ -23,6 +27,7 @@ public class GameHandler : MonoBehaviour
         if(VerificarForaDoMapa()) PlayerFlappyBird.Instance.GameOver();
 
         SpawnCano();
+        SpawnCanoSobedece();
     }
 
     private void SpawnCano()
@@ -35,6 +40,24 @@ public class GameHandler : MonoBehaviour
             
             novoCano.transform.position = new Vector3(13,0,0);
             _tempoAtualSpawn = tempoSpawn;
+        }
+    }
+
+    private void SpawnCanoSobedece()
+    {
+        _tempoAtualSpawn -= Time.deltaTime;
+
+        if (_tempoAtualSpawn <= 0) 
+        { 
+            _tempoSD -= Time.deltaTime;
+
+            if (_tempoSD <= 0)
+            {
+                var novoCanoSobeDece = Instantiate(canoSobeDecePrefab);
+
+                novoCanoSobeDece.transform.position = new Vector3(13, 0, 0);
+                _tempoAtualSpawn = tempoSpawn;
+            }
         }
     }
 
