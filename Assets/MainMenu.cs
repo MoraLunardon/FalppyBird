@@ -9,8 +9,10 @@ public class MainMenu : MonoBehaviour
     [SerializeField] private GameObject PainelMenuPrincipal;
     [SerializeField] private GameObject PainelGameOver;
     [SerializeField] private SpriteRenderer Player;
+    [SerializeField] private GameObject FlappyBird;
     [SerializeField] private GameObject PlayButton;
     [SerializeField] private TextMeshProUGUI TextoContador;
+    private Rigidbody2D _rb2D;
     private float DefaultColor = 1f;
     private string TagCano = "CanoClone";
 
@@ -21,6 +23,7 @@ public class MainMenu : MonoBehaviour
         Player.color = new Color(DefaultColor, DefaultColor, DefaultColor, 0f);
         TextoContador.color = new Color(DefaultColor, DefaultColor, DefaultColor, 0f);
         Time.timeScale = 0;
+        _rb2D = FlappyBird.GetComponent<Rigidbody2D>();
     }
 
     public void Play()
@@ -47,6 +50,7 @@ public class MainMenu : MonoBehaviour
         PainelMenuPrincipal.SetActive(false);
         PainelGameOver.SetActive(false);
         Player.transform.position = new Vector3(-6.44f,1.2f,0f);
+        _rb2D.linearVelocity = new Vector2(0,0);
         Player.color = new Color(DefaultColor, DefaultColor, DefaultColor, 1f);
         TextoContador.color = new Color(DefaultColor, DefaultColor, DefaultColor, 1f);
         Contador.Contar = 0;

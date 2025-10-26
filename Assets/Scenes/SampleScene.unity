@@ -1542,6 +1542,7 @@ MonoBehaviour:
   PainelMenuPrincipal: {fileID: 429082932}
   PainelGameOver: {fileID: 1640741621}
   Player: {fileID: 1297898542}
+  FlappyBird: {fileID: 1297898540}
   PlayButton: {fileID: 619359858}
   TextoContador: {fileID: 1790509453}
 --- !u!4 &1027899604
@@ -1606,7 +1607,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 4
+  m_Constraints: 5
 --- !u!212 &1297898542
 SpriteRenderer:
   m_ObjectHideFlags: 0
