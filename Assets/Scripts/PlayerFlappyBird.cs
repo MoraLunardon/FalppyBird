@@ -1,12 +1,20 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using TMPro;
 
 public class PlayerFlappyBird : MonoBehaviour
 {
     public static PlayerFlappyBird Instance;
     
     private Rigidbody2D _rb2D;
+    [SerializeField] private TextMeshProUGUI BSText;
+    [SerializeField] private GameObject PainelGameOver;
+    [SerializeField] private SpriteRenderer Player;
     [SerializeField] private float velocidadePulo = 5f;
     [SerializeField] private  Animator _flappyAnimator;
+    [SerializeField] private TextMeshProUGUI TextoContador;
+    private float DefaultColor = 1f;
+    private float BestScore = 0f;
     
     // Start is called before the first frame update
     void Start()
@@ -32,8 +40,37 @@ public class PlayerFlappyBird : MonoBehaviour
         float ySpeedr = transform.position.y;
         _flappyAnimator.SetFloat("ySpeed", ySpeedr);
     }
+
+    public void OnCollisionEnter(Collision other)
+    {
+
+        if (other.gameObject.CompareTag("Canos(Clone)"))
+        {
+            GameOver();
+        }
+        else{
+        if (other.gameObject.CompareTag("Chão"))
+        {
+            GameOver();
+        }
+        if (other.gameObject.CompareTag("Teto"))
+        {
+            GameOver();
+        }
+        }
+    }
+
     public void GameOver()
     {
-        Time.timeScale = 1;
+        if(Contador.Contar > BestScore){
+            BestScore = Contador.Contar;
+        }
+
+        BSText.text = BestScore.ToString();
+
+        Player.color = new Color(DefaultColor, DefaultColor, DefaultColor, 0f);
+        TextoContador.color = new Color(DefaultColor, DefaultColor, DefaultColor, 0f);
+        PainelGameOver.SetActive(true);
+        Time.timeScale = 0;
     }
 }

@@ -116,7 +116,7 @@ GameObject:
   - component: {fileID: 813628164053128346}
   m_Layer: 0
   m_Name: Canos
-  m_TagString: Untagged
+  m_TagString: CanoClone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
