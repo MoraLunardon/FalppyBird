@@ -13,6 +13,7 @@ public class PlayerFlappyBird : MonoBehaviour
     [SerializeField] private float velocidadePulo = 5f;
     [SerializeField] private  Animator _flappyAnimator;
     [SerializeField] private TextMeshProUGUI TextoContador;
+    [SerializeField] private GameObject PainelInfo;
     private float DefaultColor = 1f;
     private float BestScore = 0f;
     
@@ -70,6 +71,7 @@ public class PlayerFlappyBird : MonoBehaviour
 
         Player.color = new Color(DefaultColor, DefaultColor, DefaultColor, 0f);
         TextoContador.color = new Color(DefaultColor, DefaultColor, DefaultColor, 0f);
+        PainelInfo.SetActive(false);
         PainelGameOver.SetActive(true);
         Time.timeScale = 0;
     }

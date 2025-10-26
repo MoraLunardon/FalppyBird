@@ -12,6 +12,7 @@ public class MainMenu : MonoBehaviour
     [SerializeField] private GameObject FlappyBird;
     [SerializeField] private GameObject PlayButton;
     [SerializeField] private TextMeshProUGUI TextoContador;
+    [SerializeField] private GameObject PainelInfo;
     private Rigidbody2D _rb2D;
     private float DefaultColor = 1f;
     private string TagCano = "CanoClone";
@@ -20,6 +21,7 @@ public class MainMenu : MonoBehaviour
     {
         PainelGameOver.SetActive(false);
         PainelMenuPrincipal.SetActive(true);
+        PainelInfo.SetActive(false);
         Player.color = new Color(DefaultColor, DefaultColor, DefaultColor, 0f);
         TextoContador.color = new Color(DefaultColor, DefaultColor, DefaultColor, 0f);
         Time.timeScale = 0;
@@ -30,9 +32,11 @@ public class MainMenu : MonoBehaviour
     {
         PainelMenuPrincipal.SetActive(false);
         PainelGameOver.SetActive(false);
+        PainelInfo.SetActive(true);
         Player.color = new Color(DefaultColor, DefaultColor, DefaultColor, 1f);
         TextoContador.color = new Color(DefaultColor, DefaultColor, DefaultColor, 1f);
         Time.timeScale = 1;
+       
     }
 
     public void DestruirCanos(){
@@ -55,6 +59,7 @@ public class MainMenu : MonoBehaviour
         TextoContador.color = new Color(DefaultColor, DefaultColor, DefaultColor, 1f);
         Contador.Contar = 0;
         PainelMenuPrincipal.SetActive(false);
+        PainelInfo.SetActive(true);
         Time.timeScale = 1;
     }
 }
