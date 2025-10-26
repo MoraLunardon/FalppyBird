@@ -116,7 +116,7 @@ GameObject:
   - component: {fileID: 6192996233431514644}
   m_Layer: 0
   m_Name: Canos que Sobem e Decem
-  m_TagString: Untagged
+  m_TagString: CanoClone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -151,6 +151,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9ff687f6753b7949a821d9fac92afeb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cima: 1
 --- !u!1 &5025124834706916912
 GameObject:
   m_ObjectHideFlags: 0
@@ -229,7 +230,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 15
-  m_Sprite: {fileID: -6772928796248782575, guid: 8827a927a1572024db116dfcb962f711, type: 3}
+  m_Sprite: {fileID: -4791021029333533172, guid: 8827a927a1572024db116dfcb962f711, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 1
@@ -276,7 +277,7 @@ BoxCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0.81}
   m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
+    border: {x: 0.02, y: 0.01, z: 0.02, w: 0.01}
     pivot: {x: 0.5, y: 1}
     oldSize: {x: 0.28, y: 1.62}
     newSize: {x: 0.28, y: 1.62}
@@ -376,7 +377,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 15
-  m_Sprite: {fileID: -6772928796248782575, guid: 8827a927a1572024db116dfcb962f711, type: 3}
+  m_Sprite: {fileID: -4791021029333533172, guid: 8827a927a1572024db116dfcb962f711, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -423,7 +424,7 @@ BoxCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: -0.81}
   m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
+    border: {x: 0.02, y: 0.01, z: 0.02, w: 0.01}
     pivot: {x: 0.5, y: 1}
     oldSize: {x: 0.28, y: 1.62}
     newSize: {x: 0.28, y: 1.62}

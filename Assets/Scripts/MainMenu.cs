@@ -39,9 +39,9 @@ public class MainMenu : MonoBehaviour
        
     }
 
-    public void DestruirCanos(){
-	GameObject[] Clones = GameObject.FindGameObjectsWithTag(TagCano);
-
+    public void DestruirCanos()
+    {
+        GameObject[] Clones = GameObject.FindGameObjectsWithTag(TagCano);
 
         foreach (GameObject CloneCano in Clones)
         {
