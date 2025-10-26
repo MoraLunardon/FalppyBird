@@ -35,9 +35,9 @@ public class MainMenu : MonoBehaviour
         Time.timeScale = 1;
     }
 
-    public void DestruirCanos(){
-	GameObject[] Clones = GameObject.FindGameObjectsWithTag(TagCano);
-
+    public void DestruirCanos()
+    {
+        GameObject[] Clones = GameObject.FindGameObjectsWithTag(TagCano);
 
         foreach (GameObject CloneCano in Clones)
         {
