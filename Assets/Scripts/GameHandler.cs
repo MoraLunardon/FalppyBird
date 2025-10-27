@@ -15,8 +15,8 @@ public class GameHandler : MonoBehaviour
     [SerializeField] private float tempoSpawnSD = 2;
     [SerializeField] private float distancia;
     [SerializeField] private float distanciaMenor;
-    public float _tempoAtualSpawn;
-    public float _tempoSD;
+    private float _tempoAtualSpawn;
+    private float _tempoSD;
 
     private void Start()
     {
