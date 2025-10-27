@@ -1,8 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
+using System;
 
 public class MainMenu : MonoBehaviour
 {
@@ -13,12 +12,15 @@ public class MainMenu : MonoBehaviour
     [SerializeField] private GameObject PlayButton;
     [SerializeField] private TextMeshProUGUI TextoContador;
     [SerializeField] private GameObject PainelInfo;
+    [SerializeField] private GameObject PainelPause;
     private Rigidbody2D _rb2D;
     private float DefaultColor = 1f;
     private string TagCano = "CanoClone";
+    private bool IsAlive = false;
 
     public void Start()
     {
+        PainelPause.SetActive(false);
         PainelGameOver.SetActive(false);
         PainelMenuPrincipal.SetActive(true);
         PainelInfo.SetActive(false);
@@ -28,6 +30,20 @@ public class MainMenu : MonoBehaviour
         _rb2D = FlappyBird.GetComponent<Rigidbody2D>();
     }
 
+    private void Update()
+    {
+        Pause();
+
+        if(Player.color == new Color(DefaultColor, DefaultColor, DefaultColor, 0f)){
+            IsAlive = true;
+        }
+        else{
+            if(Player.color == new Color(DefaultColor, DefaultColor, DefaultColor, 1f)){
+                IsAlive = false;
+            }
+        }
+     }
+
     public void Play()
     {
         PainelMenuPrincipal.SetActive(false);
@@ -36,7 +52,6 @@ public class MainMenu : MonoBehaviour
         Player.color = new Color(DefaultColor, DefaultColor, DefaultColor, 1f);
         TextoContador.color = new Color(DefaultColor, DefaultColor, DefaultColor, 1f);
         Time.timeScale = 1;
-       
     }
 
     public void DestruirCanos()
@@ -60,6 +75,23 @@ public class MainMenu : MonoBehaviour
         Contador.Contar = 0;
         PainelMenuPrincipal.SetActive(false);
         PainelInfo.SetActive(true);
+        Time.timeScale = 1;
+    }
+
+    public void Pause(){
+        if(Input.GetKey(KeyCode.Escape)){
+            if(IsAlive){
+                PainelPause.SetActive(false);    
+            }
+            else{
+                PainelPause.SetActive(true);
+                Time.timeScale = 0;
+            }
+        }
+    }
+
+    public void Resume(){
+        PainelPause.SetActive(false);
         Time.timeScale = 1;
     }
 }
