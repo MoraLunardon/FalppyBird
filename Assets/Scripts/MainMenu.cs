@@ -20,6 +20,10 @@ public class MainMenu : MonoBehaviour
 
     public void Start()
     {
+        _rb2D = FlappyBird.GetComponent<Rigidbody2D>();
+        DestruirCanos();
+        Player.transform.position = new Vector3(-6.44f,1.2f,0f);
+        _rb2D.linearVelocity = new Vector2(0,0);
         PainelPause.SetActive(false);
         PainelGameOver.SetActive(false);
         PainelMenuPrincipal.SetActive(true);
@@ -81,10 +85,12 @@ public class MainMenu : MonoBehaviour
     public void Pause(){
         if(Input.GetKey(KeyCode.Escape)){
             if(IsAlive){
-                PainelPause.SetActive(false);    
+                PainelPause.SetActive(false);
+                PainelInfo.SetActive(true);
             }
             else{
                 PainelPause.SetActive(true);
+                PainelInfo.SetActive(false);
                 Time.timeScale = 0;
             }
         }
@@ -92,6 +98,11 @@ public class MainMenu : MonoBehaviour
 
     public void Resume(){
         PainelPause.SetActive(false);
+        PainelInfo.SetActive(true);
         Time.timeScale = 1;
+    }
+
+    public void ExitGame(){
+        Application.Quit();
     }
 }
