@@ -2758,9 +2758,7 @@ MonoBehaviour:
   tempoSpawn: 4
   tempoSpawnSD: 2
   distancia: 3.8
-  distanciaMenor: 2.2
-  _tempoAtualSpawn: 0
-  _tempoSD: 0
+  distanciaMenor: -2.2
 --- !u!4 &1487999065
 Transform:
   m_ObjectHideFlags: 0

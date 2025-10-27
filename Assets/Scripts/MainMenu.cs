@@ -46,7 +46,7 @@ public class MainMenu : MonoBehaviour
                 IsAlive = false;
             }
         }
-     }
+    }
 
     public void Play()
     {
