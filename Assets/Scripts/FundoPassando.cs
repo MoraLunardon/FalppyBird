@@ -19,7 +19,7 @@ public class FundoPassando : MonoBehaviour
 	{ 
 	
 		transform.Translate(Vector2.left * _velocidadeFundo * Time.deltaTime);
-		if (transform.position.x > 7.87f)
+		if (transform.position.x < -22.23589f)
 			{
 				transform.position = _posicaoInicial;
 			}
