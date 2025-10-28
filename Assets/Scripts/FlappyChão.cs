@@ -1,40 +1,29 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
+using System; 
+using System.Collections; 
+using System.Collections.Generic; 
 using UnityEngine;
 
 public class FlappyChão : MonoBehaviour
 {
-    [SerializeField] private float _velocidadeChao = 1f;
-    [SerializeField] private float _larguraChao = 6f;
 
-    private SpriteRenderer _chaoSprite;
-    private Vector2 _tamanhoInicial;
+    [SerializeField] private float _velocidadeChao = 5f;
+    [SerializeField] private Vector2 _posicaoInicialC;
 
     private void Start()
     {
-        _chaoSprite = GetComponent<SpriteRenderer>();
-        _tamanhoInicial = new Vector2(_chaoSprite.size.x, _chaoSprite.size.y);
+
+        _posicaoInicialC = transform.position;
+
     }
 
     private void Update()
     {
-        _chaoSprite.size = new Vector2(_chaoSprite.size.x + _velocidadeChao * Time.deltaTime, _chaoSprite.size.y);
 
-        if (_chaoSprite.size.x > _larguraChao)
+        transform.Translate(Vector2.left * _velocidadeChao * Time.deltaTime);
+        if (transform.position.x > 12.48f)
         {
-            _chaoSprite.size = _tamanhoInicial;
+            transform.position = _posicaoInicialC;
         }
     }
-
-    private void OnCollisionEnter2D(Collision2D other)
-    {
-        var bird = other.gameObject.GetComponent<PlayerFlappyBird>();
-        
-        if(bird == null) return;
-        
-        bird.GameOver();
-    }
-
 
 }
