@@ -10,7 +10,8 @@ public class PlayerFlappyBird : MonoBehaviour
     [SerializeField] private TextMeshProUGUI BSText;
     [SerializeField] private GameObject PainelGameOver;
     [SerializeField] private SpriteRenderer Player;
-    [SerializeField] private float velocidadePulo = 5f;
+    [SerializeField] private float velocidadePulo = 3f;
+    [SerializeField] private float velocidadeRotacao = 5f;
     [SerializeField] private  Animator _flappyAnimator;
     [SerializeField] private TextMeshProUGUI TextoContador;
     [SerializeField] private GameObject PainelInfo;
@@ -28,6 +29,7 @@ public class PlayerFlappyBird : MonoBehaviour
     void Update()
     {
         Pular();
+        transform.rotation = Quaternion.Euler(0, 0, _rb2D.linearVelocity.y * velocidadeRotacao);
     }
 
     private void Pular()
