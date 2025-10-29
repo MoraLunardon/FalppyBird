@@ -91,7 +91,7 @@ public class MainMenu : MonoBehaviour
             else{
                 PainelPause.SetActive(true);
                 PainelInfo.SetActive(false);
-                Time.timeScale = 0;
+                Time.timeScale = 1;
             }
         }
     }

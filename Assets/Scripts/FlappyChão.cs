@@ -20,7 +20,7 @@ public class FlappyChão : MonoBehaviour
     {
 
         transform.Translate(Vector2.left * _velocidadeChao * Time.deltaTime);
-        if (transform.position.x < -12.48f)
+        if (transform.position.x < -25.82f)
         {
             transform.position = _posicaoInicialC;
         }

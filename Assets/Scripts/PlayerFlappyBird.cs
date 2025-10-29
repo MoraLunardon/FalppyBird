@@ -15,8 +15,11 @@ public class PlayerFlappyBird : MonoBehaviour
     [SerializeField] private  Animator _flappyAnimator;
     [SerializeField] private TextMeshProUGUI TextoContador;
     [SerializeField] private GameObject PainelInfo;
+    [SerializeField] private AudioClip somColisao;
     private float DefaultColor = 1f;
     private float BestScore = 0f;
+    private bool _morreu = false;
+    private AudioSource _metalPipe;
     
     // Start is called before the first frame update
     void Start()
@@ -28,6 +31,8 @@ public class PlayerFlappyBird : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (_morreu) return;
+
         Pular();
         transform.rotation = Quaternion.Euler(0, 0, _rb2D.linearVelocity.y * velocidadeRotacao);
     }
@@ -40,26 +45,31 @@ public class PlayerFlappyBird : MonoBehaviour
             _flappyAnimator.SetTrigger("Flap");
         }
 
-        float ySpeedr = transform.position.y;
-        _flappyAnimator.SetFloat("ySpeed", ySpeedr);
+        _flappyAnimator.SetFloat("ySpeed", _rb2D.linearVelocity.y);
     }
 
-    public void OnCollisionEnter(Collision other)
+    private void Morto()
+    {
+        _morreu = true;
+        Time.timeScale = 1;
+        _flappyAnimator.SetTrigger("Death");
+        _rb2D.linearVelocity = Vector2.zero;
+        _rb2D.simulated = false;
+        Invoke(nameof(GameOver), 10f);
+    }
+
+    public void OnCollisionEnter2D(Collision2D other)
     {
 
-        if (other.gameObject.CompareTag("Canos(Clone)"))
+        if (other.gameObject.CompareTag("Canos(Clone)") ||
+        other.gameObject.CompareTag("Chão") ||
+        other.gameObject.CompareTag("Teto"))
         {
-            GameOver();
-        }
-        else{
-        if (other.gameObject.CompareTag("Chão"))
-        {
-            GameOver();
-        }
-        if (other.gameObject.CompareTag("Teto"))
-        {
-            GameOver();
-        }
+            if (_metalPipe != null && somColisao != null)
+            {
+                _metalPipe.PlayOneShot(somColisao);
+            }
+            Morto();
         }
     }
 
